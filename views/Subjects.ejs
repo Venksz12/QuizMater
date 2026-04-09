@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizMaster - Subjects</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+        /* Container for the grid layout [cite: 848-857] */
+        .contain { 
+            max-width: 1100px; 
+            margin: 0 auto; 
+            padding: 40px 15px;
+        }
+
+        .sub-list { 
+            display: grid; 
+            gap: 25px; 
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
+        }
+
+        /* Card design with entry animation [cite: 858-868, 873-877] */
+        .card { 
+            border-radius: 16px; 
+            overflow: hidden; 
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); 
+            background: linear-gradient(to bottom right, #ffffff, #f1f7ff);
+            transition: all 0.3s ease-in-out; 
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card:hover { 
+            transform: translateY(-4px) scale(1.015); 
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Card Header styling [cite: 879-887] */
+        .card-header { 
+            background: linear-gradient(to right, #102770, #274b9e); 
+            color: white; 
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 12px 18px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+            border: none;
+        }
+
+        /* Topic link buttons [cite: 903-921] */
+        .topic-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .topic-links a { 
+            display: block; 
+            color: #007bff; 
+            text-decoration: none; 
+            font-weight: 500;
+            border: 2px solid #007bff;
+            padding: 8px 14px; 
+            border-radius: 10px; 
+            background-color: #eaf4ff; 
+            text-align: center; 
+            font-size: 0.95rem;
+            transition: all 0.3s ease; 
+        }
+
+        .topic-links a:hover { 
+            background: linear-gradient(to right, #007bff, #0056b3); 
+            color: white; 
+            box-shadow: 0 4px 10px rgba(0, 123, 255, 0.25);
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body>
+    <div class="contain">
+        <h2 class="text-center mb-5 text-white" style="font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);">
+            <i class="fas fa-book-open me-2"></i>Select a Subject to Begin
+        </h2>
+        
+        <div class="sub-list">
+            <div class="card">
+                <div class="card-header"><i class="fab fa-python me-2"></i>Python</div>
+                <div class="card-body">
+                    <h5 class="card-title mb-3" style="color: #102770; font-weight: 600;">Topics</h5>
+                    <div class="topic-links">
+                        <a href="/questions/0">Basics</a>
+                        <a href="/questions/1">OOPS</a>
+                        <a href="/questions/2">Encapsulation</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header"><i class="fas fa-code-branch me-2"></i>Data Structures</div>
+                <div class="card-body">
+                    <h5 class="card-title mb-3" style="color: #102770; font-weight: 600;">Topics</h5>
+                    <div class="topic-links">
+                        <a href="/questions/3">Linked Lists</a>
+                        <a href="/questions/4">Sorting & Searching</a>
+                        <a href="/questions/5">Stacks & Queues</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header"><i class="fas fa-database me-2"></i>DBMS</div>
+                <div class="card-body">
+                    <h5 class="card-title mb-3" style="color: #102770; font-weight: 600;">Topics</h5>
+                    <div class="topic-links">
+                        <a href="/questions/6">SQL Queries</a>
+                        <a href="/questions/7">Normalization & Indexing</a>
+                        <a href="/questions/8">NoSQL vs SQL</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-5">
+            <a href="/home" class="btn btn-light btn-sm rounded-pill px-4 shadow-sm" style="color: #102770; font-weight: 600;">
+                <i class="fas fa-home me-1"></i> Back to Home
+            </a>
+        </div>
+    </div>
+</body>
+</html>

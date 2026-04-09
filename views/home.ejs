@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizMaster - Home</title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+        /* Specific layout for the Home container */
+        .container { 
+            background: white; 
+            border-radius: 20px; 
+            padding: 50px 30px; 
+            box-shadow: 0 20px 35px rgba(0,0,0,0.2); 
+            text-align: center; 
+            width: 90%; 
+            max-width: 450px; 
+            animation: fadeIn 0.8s ease-in-out; /* cite: 589 */
+        }
+
+        /* Animation for a smooth entrance */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .logo { font-size: 48px; margin-bottom: 10px; } /* cite: 600-603 */
+
+        .btn-group { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 15px; 
+            margin-top: 30px; 
+        }
+
+        /* Button styling matching the QuizMaster theme */
+        button { 
+            background-color: #102770; 
+            color: white; 
+            border: none; 
+            padding: 12px; 
+            border-radius: 10px; 
+            cursor: pointer; 
+            font-size: 16px; 
+            width: 100%; 
+            transition: background 0.3s ease; /* cite: 625 */
+        }
+
+        button:hover { 
+            background-color: #0056b3; 
+        }
+
+        a { text-decoration: none; } /* cite: 616 */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">🧠</div> 
+        
+        <h1>Welcome to <strong>QuizMaster</strong></h1>
+        
+        <div class="btn-group">
+            <% if (loggedIn) { %>
+                <a href="/subjects"><button>Subjects</button></a>
+                <a href="/leaderboard"><button>Leaderboard</button></a>
+                <a href="/logout"><button>Logout</button></a>
+            <% } else { %>
+                <a href="/"><button>Login</button></a>
+                <a href="/signup"><button>Signup</button></a>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>

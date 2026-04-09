@@ -1,0 +1,17 @@
+/* Global styles based on project documentation */
+body {
+    background: linear-gradient(120deg, #89f7fe, #66a6ff) !important; /* cite: 391, 572, 677 */
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important; /* cite: 393, 679, 1026 */
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+/* Custom scrollbar for a better look */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-thumb {
+    background: #102770; /* cite: 426, 712 */
+    border-radius: 10px;
+}

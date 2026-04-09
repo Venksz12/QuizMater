@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizMaster - Signup</title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+        .container { 
+            background: white; 
+            border-radius: 20px; 
+            padding: 40px; 
+            box-shadow: 0 20px 35px rgba(0,0,0,0.2); 
+            text-align: center; 
+            width: 90%; 
+            max-width: 400px; 
+            animation: fadeIn 0.8s ease-in-out; 
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 { color: #102770; margin-bottom: 25px; } /* cite: 426 */
+
+        .form-group { text-align: left; margin-bottom: 15px; }
+
+        label { 
+            display: block; 
+            margin-bottom: 5px; 
+            color: #333; 
+            font-weight: 500; 
+        } /* cite: 429-430 */
+
+        input { 
+            width: 100%; 
+            padding: 10px; 
+            border: 2px solid #ccc; 
+            border-radius: 8px; 
+            box-sizing: border-box; 
+            background-color: #f9f9fc;
+        } /* cite: 438-441 */
+
+        input:focus { border-color: #007bff; outline: none; } /* cite: 445 */
+
+        button { 
+            background-color: #102770; 
+            color: white; 
+            border: none; 
+            padding: 12px; 
+            border-radius: 10px; 
+            cursor: pointer; 
+            font-size: 18px; 
+            font-weight: bold;
+            width: 100%; 
+            margin-top: 15px;
+            transition: background 0.3s; 
+        } /* cite: 452-458 */
+
+        button:hover { background-color: #0056b3; } /* cite: 461 */
+
+        .login-link { 
+            display: block; 
+            margin-top: 20px; 
+            text-decoration: none; 
+            color: #102770; 
+            font-size: 14px; 
+        } /* cite: 462-469 */
+
+        .login-link:hover { text-decoration: underline; color: #007bff; } /* cite: 471-473 */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Signup</h2>
+        
+        <% if (locals.message) { %>
+            <script>alert("<%= locals.message %>");</script>
+        <% } %>
+
+        <form action="/authsignup" method="POST">
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" name="username" placeholder="Enter username" required>
+            </div>
+
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" name="email" placeholder="example@gmail.com" required>
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Enter password" required>
+            </div>
+
+            <div class="form-group">
+                <label>Confirm Password</label>
+                <input type="password" name="cpassword" placeholder="Re-enter password" required>
+            </div>
+
+            <button type="submit">Signup</button>
+        </form>
+
+        <a href="/" class="login-link">Already have an account? Login</a>
+    </div>
+
+    <script>
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
+</body>
+</html>

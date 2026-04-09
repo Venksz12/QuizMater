@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizMaster - Login</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+        /* Body centering provided by external style.css if implemented, 
+           otherwise flex remains here for the login card placement */
+        body { 
+            height: 100vh; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            margin: 0;
+        }
+
+        /* Card styling consistent with project requirements [cite: 688-693] */
+        .login-card { 
+            width: 400px; 
+            padding: 40px; 
+            border-radius: 20px; 
+            box-shadow: 0 20px 35px rgba(0,0,0,0.2); 
+            background: white; 
+            animation: fadeIn 0.8s ease-in-out; /* [cite: 695] */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .login-heading {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 30px;
+            font-weight: bold;
+            color: #102770;
+        } /* [cite: 706-712] */
+
+        .form-label { font-weight: 500; color: #333; margin-bottom: 8px; } /* [cite: 713-717] */
+
+        .input-group-text { background-color: #f0f0f5; border: 2px solid #ccc; } /* [cite: 718-721] */
+
+        .form-control { 
+            border: 2px solid #ccc; 
+            background-color: #f9f9fc; 
+            padding: 10px; 
+            border-radius: 8px; 
+            transition: all 0.3s ease;
+        } /* [cite: 722-728] */
+
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+        } /* [cite: 729-731] */
+
+        .btn-custom { 
+            background-color: #102770; 
+            color: white; 
+            width: 100%; 
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+            margin-top: 15px; 
+        } /* [cite: 733-744] */
+
+        .btn-custom:hover { background-color: #0056b3; } /* [cite: 747] */
+
+        .anchor-login { 
+            display: block; 
+            text-align: center; 
+            margin-top: 15px; 
+            text-decoration: none; 
+            color: #102770; 
+            font-size: 15px;
+            transition: color 0.3s ease;
+        } /* [cite: 748-755] */
+
+        .anchor-login:hover {
+            color: #007bff;
+            text-decoration: underline;
+        } /* [cite: 757-759] */
+    </style>
+</head>
+<body>
+    <% if (locals.message) { %>
+        <script>alert("<%= locals.message %>");</script>
+    <% } %>
+
+    <div class="login-card">
+        <h2 class="login-heading">Welcome to QuizMaster</h2>
+        
+        <form action="/authlogin" method="post">
+            <div class="mb-3">
+                <label class="form-label" for="email">Email Address</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                    <input type="email" name="email" id="email" class="form-control" required placeholder="example@gmail.com">
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label" for="password">Password</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                    <input type="password" name="password" id="password" class="form-control" required>
+                </div>
+            </div>
+            
+            <button type="submit" class="btn btn-custom">Login</button>
+            
+            <a href="/signup" class="anchor-login">
+                Don't have an account? Sign up
+            </a>
+        </form>
+    </div>
+
+    <script>
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
+</body>
+</html>
